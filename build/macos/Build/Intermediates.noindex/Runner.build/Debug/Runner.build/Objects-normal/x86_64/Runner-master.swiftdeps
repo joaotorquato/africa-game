@@ -1,0 +1,7 @@
+version: "Apple Swift version 5.4.2 (swiftlang-1205.0.28.2 clang-1205.0.19.57)"
+options: "2b65f04f8e09cac767188f236d9cbaab"
+build_time: [1634859051, 79387000]
+inputs:
+  "/Users/marcelcunha/Desktop/Pessoal/africagame/macos/Runner/MainFlutterWindow.swift": [1634591252, 349395435]
+  "/Users/marcelcunha/Desktop/Pessoal/africagame/macos/Runner/AppDelegate.swift": [1634591252, 345323525]
+  "/Users/marcelcunha/Desktop/Pessoal/africagame/macos/Flutter/GeneratedPluginRegistrant.swift": [1634859016, 666487787]
