@@ -15,14 +15,39 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Africa'),
+        title: const Center(child: Text('ÁFRICA')),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            TextButton(
-                onPressed: _registerTeam, child: const Text('Cadastrar Duplas'))
+            Container(
+              margin: const EdgeInsets.only(top: 20.0),
+              width: 250.0,
+              child: FloatingActionButton.extended(
+                onPressed: _registerTeam,
+                label: const Text('Cadastrar Duplas'),
+                icon: const Icon(Icons.supervised_user_circle_rounded),
+              ),
+            ),
+            Container(
+              margin: const EdgeInsets.only(top: 20.0),
+              width: 250.0,
+              child: FloatingActionButton.extended(
+                onPressed: _registerWords,
+                label: const Text('Cadastrar Palavras'),
+                icon: const Icon(Icons.assignment_outlined),
+              ),
+            ),
+            Container(
+              margin: const EdgeInsets.only(top: 20.0),
+              width: 250.0,
+              child: FloatingActionButton.extended(
+                onPressed: _startGame,
+                label: const Text('Iniciar Jogo'),
+                icon: const Icon(Icons.play_arrow),
+              ),
+            ),
           ],
         ),
       ),
@@ -30,6 +55,14 @@ class _HomePageState extends State<HomePage> {
   }
 
   void _registerTeam() {
+    Navigator.pushNamed(context, TeamPage.routeName);
+  }
+
+  void _registerWords() {
+    Navigator.pushNamed(context, TeamPage.routeName);
+  }
+
+  void _startGame() {
     Navigator.pushNamed(context, TeamPage.routeName);
   }
 }
