@@ -19,10 +19,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Africa',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      title: 'ÁFRICA',
       initialRoute: HomePage.routeName,
       routes: {
         HomePage.routeName: (context) => const HomePage(),

@@ -22,7 +22,7 @@ class _TeamPageState extends State<TeamPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Africa'),
+        title: const Center(child: Text('ÁFRICA')),
       ),
       body: Center(child: _buildMainWidget()),
     );
@@ -55,7 +55,11 @@ class _TeamPageState extends State<TeamPage> {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
-        const Text('Cadastro de Duplas'),
+        Container(
+          margin: const EdgeInsets.only(top: 20.0),
+          width: 250.0,
+          child: const Center(child: Text('Cadastro de Duplas')),
+        ),
         TextFormField(
           decoration: const InputDecoration(
               labelText: 'Nome da dupla', hintText: 'Digite o nome da dupla'),
