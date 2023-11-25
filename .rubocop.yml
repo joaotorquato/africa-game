@@ -1,0 +1,46 @@
+---
+AllCops:
+  TargetRubyVersion: 3.2.2
+  Exclude:
+    - vendor/**/*
+    - log/**/*
+    - tmp/**/*
+    - db/schema.rb
+    - bin/*
+    - node_modules/**/*
+    - lib/tasks/**/*
+    - spec/fixtures/**/*
+    - storage/**/*
+    - coverage/**/*
+    - .git/**/*
+    - public/**/*
+  NewCops: disable
+
+Layout/LineLength:
+  Exclude:
+  - db/**/*
+  - specs/**/*
+  Max: 100
+
+Style/Documentation:
+  Enabled: false
+
+Metrics/MethodLength:
+  Exclude:
+    - db/migrate/*
+    - 'spec/features/**/*'
+
+Metrics/AbcSize:
+  Exclude:
+    - db/migrate/*
+    - 'spec/features/**/*'
+
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*'
+    - 'config/environments/**/*'
+    - config/routes.rb
+    - config/initializers/devise.rb
+
+Style/ClassAndModuleChildren:
+  Enabled: false
