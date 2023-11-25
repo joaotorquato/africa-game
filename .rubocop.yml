@@ -21,6 +21,7 @@ Layout/LineLength:
   - db/**/*
   - specs/**/*
   Max: 100
+  AllowedPatterns: ['\A#', ' # ']
 
 Style/Documentation:
   Enabled: false
