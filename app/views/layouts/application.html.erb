@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="h-100">
   <head>
     <title>AfricaGame</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -9,8 +9,16 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
-
-  <body>
-    <%= yield %>
+  <body class="d-flex flex-column h-100">
+    <div class="header mt-5 d-flex justify-content-center">
+      <i data-feather="arrow-left-circle" class="me-2"></i>
+      <h1 class="">ÁFRICA GAME</h1>
+    </div>
+    <div class="container text-center">
+      <%= yield %>
+    </div>
+    <footer class="mt-auto text-white-50">
+      <p class="container text-center">Developed by bolovo lovers</p>
+    </footer>
   </body>
 </html>
