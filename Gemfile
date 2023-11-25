@@ -21,6 +21,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'pry-rails'
   gem 'rubocop', '~> 1.57'
   gem 'web-console'
 end

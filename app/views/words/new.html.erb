@@ -1,0 +1,9 @@
+<h2 class="mb-5">Cadastro de Palavra</h2>
+<%= form_with model: @word, html: { class: "d-grid gap-2" } do |f| %>
+  <%= f.text_field :name, input_html: { autofocus: true }, class: 'form-control form-control-lg w-100' %>
+  <% if @word.errors.any? %>
+    <%= @word.errors.full_messages.to_sentence.capitalize %>
+  <% end %>
+  <%= f.submit 'Adicionar palavra', class: "btn btn-success btn-lg w-100" %>
+  <%= link_to 'Finalizar Cadastro', root_path, class: "btn btn-warning btn-lg w-100" %>
+<% end %>

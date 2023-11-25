@@ -4,12 +4,15 @@ body {
   background-color: #032B43; /* Adjust the color to match the background of the image */
   color: white;
 }
+.bg-body {
+  background-color: #032B43; /* Adjust the color to match the background of the image */
+}
+.scrollable-list {
+  max-height: 400px; /* Adjust the height as needed */
+  overflow: auto;
+}
 .container {
   max-width: 400px;
-}
-.button-large {
-  padding: 10px 0;
-  font-size: 1.2rem; /* Larger font size for buttons */
 }
 .header {
   margin-bottom: 30px; /* Space above the buttons */

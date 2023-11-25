@@ -1,0 +1,22 @@
+<h2 class="mb-5">Cadastro de Times</h2>
+<%= form_with model: @team, html: { class: "d-grid gap-2" } do |f| %>
+    <%= f.text_field :name, input_html: { autofocus: true }, class: 'form-control form-control-lg w-100' %>
+  <% if @team.errors.any? %>
+      <%= @team.errors.full_messages.to_sentence.capitalize %>
+  <% end %>
+    <%= f.submit 'Adicionar Time', class: "btn btn-success btn-lg w-100" %>
+<% end %>
+
+<% if @teams.count > 0 %>
+  <ul class="list-group p-1 m-3 scrollable-list">
+    <li class="list-group-item active">Times</li>
+    <% @teams.each do |team| %>
+      <li class="list-group-item"> <%= team.name %> </li>
+    <% end %>
+  </ul>
+  <%= link_to 'Finalizar Cadastro', root_path, class: "btn btn-warning btn-lg w-100" %>
+<% else %>
+  <h6 class="p-3"> Você não possui nenhum time cadastrado ainda. </h6>
+<% end %>
+
+

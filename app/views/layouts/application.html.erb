@@ -11,7 +11,11 @@
   </head>
   <body class="d-flex flex-column h-100">
     <div class="header mt-5 d-flex justify-content-center">
-      <i data-feather="arrow-left-circle" class="me-2"></i>
+      <% unless current_page?(root_path) %>
+        <%= link_to root_path, class: 'text-white text-decoration-none' do %>
+          <i data-feather="arrow-left-circle" class="me-2"></i>
+        <% end %>
+      <% end %>
       <h1 class="">ÁFRICA GAME</h1>
     </div>
     <div class="container text-center">
@@ -21,4 +25,14 @@
       <p class="container text-center">Developed by bolovo lovers</p>
     </footer>
   </body>
+  <% if flash[:notice] %>
+    <div class="toast-container position-fixed bottom-0 top-0 p-5 w-100">
+      <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-body bg-success">
+          <%= flash[:notice] %>
+          <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+      </div>
+    </div>
+  <% end %>
 </html>

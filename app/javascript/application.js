@@ -3,4 +3,13 @@ import "@hotwired/turbo-rails"
 import "controllers"
 import "bootstrap"
 import "feather"
-feather.replace();
+document.addEventListener("turbo:load", function() {
+  feather.replace();
+
+  const toastLiveExample = document.getElementById('liveToast')
+  if (toastLiveExample) {
+    const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample)
+    toastBootstrap.show()
+  }
+});
+

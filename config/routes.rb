@@ -9,6 +9,9 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
-  resources :home, only: :index
   root 'home#index'
+  resources :home, only: %i[index]
+  resources :teams, only: %i[index create]
+  resources :words, only: %i[new create]
+  delete :reset_game, to: 'home#reset_game'
 end
