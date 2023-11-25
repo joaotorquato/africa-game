@@ -273,7 +273,6 @@ DEPENDENCIES
   sqlite3 (~> 1.4)
   stimulus-rails
   turbo-rails
-  tzinfo-data
   web-console
 
 RUBY VERSION
