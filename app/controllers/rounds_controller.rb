@@ -56,9 +56,14 @@ class RoundsController < ApplicationController
 
   def initialize_round
     # in case exists a team that still have time
-    return Round.last if Round.last&.time_remaining?
+    last_round = Round.last
+    return last_round if last_round&.time_remaining? && not_all_words_guessed_for?(last_round.kind)
 
     Round.new(kind: round_kind, team: next_team)
+  end
+
+  def not_all_words_guessed_for?(kind)
+    Round.where(kind:).map(&:words).flatten.count < Word.count
   end
 
   def round_kind
