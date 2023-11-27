@@ -93,6 +93,8 @@ GEM
     debug (1.8.0)
       irb (>= 1.5.0)
       reline (>= 0.3.1)
+    dockerfile-rails (1.5.12)
+      rails (>= 3.0.0)
     drb (2.2.0)
       ruby2_keywords
     erubi (1.12.0)
@@ -150,6 +152,7 @@ GEM
     parser (3.2.2.4)
       ast (~> 2.4.1)
       racc
+    pg (1.5.4)
     propshaft (0.8.0)
       actionpack (>= 7.0.0)
       activesupport (>= 7.0.0)
@@ -235,6 +238,11 @@ GEM
       google-protobuf (~> 3.23)
     sass-embedded (1.69.5-x86_64-linux-gnu)
       google-protobuf (~> 3.23)
+    sentry-rails (5.13.0)
+      railties (>= 5.0)
+      sentry-ruby (~> 5.13.0)
+    sentry-ruby (5.13.0)
+      concurrent-ruby (~> 1.0, >= 1.0.2)
     sqlite3 (1.6.8-aarch64-linux)
     sqlite3 (1.6.8-arm64-darwin)
     sqlite3 (1.6.8-x86_64-linux)
@@ -270,14 +278,18 @@ DEPENDENCIES
   bootsnap
   dartsass-rails
   debug
+  dockerfile-rails (>= 1.5)
   importmap-rails
   jbuilder
+  pg (~> 1.5)
   propshaft
   pry-rails
   puma (>= 5.0)
   rails (~> 7.1.2)
   redis (>= 4.0.1)
   rubocop (~> 1.57)
+  sentry-rails (~> 5.13)
+  sentry-ruby (~> 5.13)
   sqlite3 (~> 1.4)
   stimulus-rails
   turbo-rails
