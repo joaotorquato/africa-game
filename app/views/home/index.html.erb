@@ -1,7 +1,12 @@
 <h2 class="mb-5"><%= Team.count %> Times | <%= Word.count %> Palavras</h2>
 <div class="d-grid gap-2">
-  <%= link_to "Cadastrar Times", teams_path, class: "btn btn-warning btn-lg button-large" %>
-  <%= link_to "Cadastrar Palavras", new_word_path, class: "btn btn-warning btn-lg button-large" %>
-  <button class="btn btn-warning btn-lg w-100" type="button">Iniciar Jogo</button>
-  <%= link_to "Resetar Jogo", reset_game_path, data: { "turbo-method": :delete }, class: "btn btn-warning btn-lg button-large" %>
+  <%= link_to "Cadastrar Times", teams_path, class: "btn btn-warning btn-lg w-100" %>
+  <%= link_to "Cadastrar Palavras", new_word_path, class: "btn btn-warning btn-lg w-100" %>
+  <%= link_to "Iniciar Jogo", new_round_path, class: "btn btn-warning btn-lg w-100" %>
+  <%# <%= link_to "Resetar Jogo", reset_game_path, data: { "turbo-method": :delete, turbo_confirm: "Você tem certeza disso?" }, class: "btn btn-warning btn-lg button-large", id: "reset_game" %>
+  <div data-controller="reset" data-reset-url-value="<%= reset_game_url %>" class="w-100">
+    <button data-action="click->reset#reset" class="btn btn-warning btn-lg w-100">
+      Resetar Jogo
+    </button>
+  </div>
 </div>

@@ -1,0 +1,34 @@
+<h3>
+  <%= t(".title") %><br/>
+</h3>
+<p>
+  Último Lance:
+  <small class="text-warning">
+    <%= t(".subtitle.#{@round.kind}", team_name: @round.team.name) %>
+  </small>
+</p>
+
+<div class="mt-5 mb-5">
+  <% @teams.each do |team| %>
+    <div class="row">
+      <div class="col-6">
+        <%= team.name %>
+      </div>
+      <div class="col-2">
+        <%= team.rounds.first_round&.first&.points || 0 %>
+      </div>
+      <div class="col-2">
+        <%= team.rounds.second_round&.first&.points || 0 %>
+      </div>
+      <div class="col-2">
+        <%= team.rounds.third_round&.first&.points || 0 %>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<% if game_ended? %>
+  <%= link_to 'Início', root_path, class: "btn btn-success btn-lg w-100" %>
+<% else %>
+  <%= link_to 'Próximo', new_round_path, class: "btn btn-success btn-lg w-100" %>
+<% end %>

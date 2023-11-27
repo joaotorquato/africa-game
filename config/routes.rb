@@ -11,7 +11,10 @@ Rails.application.routes.draw do
   # root "posts#index"
   root 'home#index'
   resources :home, only: %i[index]
+  delete :reset_game, to: 'home#reset_game'
+
   resources :teams, only: %i[index create]
   resources :words, only: %i[new create]
-  delete :reset_game, to: 'home#reset_game'
+  resources :rounds, only: %i[new create show update]
+  get '/scoreboard', to: 'home#scoreboard'
 end

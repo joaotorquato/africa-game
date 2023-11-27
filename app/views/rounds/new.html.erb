@@ -1,0 +1,15 @@
+<h3>
+  <%= t(".title.#{@round.kind}") %><br/>
+  <small class="text-warning"><%= @round.team.name %></small>
+</h3>
+
+<p class="lh-1">
+<%= t(".description.#{@round.kind}") %><br/>
+<small><strong class="text-warning"><%= @words_available.count %></strong> palavras restantes</small></br>
+</p>
+
+<%= form_with model: @round do |f| %>
+  <%= f.hidden_field :kind %>
+  <%= f.hidden_field :team_id %>
+  <%= f.submit 'Começar!', class: "btn btn-warning btn-lg w-100 mt-3" %>
+<% end %>

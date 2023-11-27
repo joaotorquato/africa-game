@@ -6,7 +6,7 @@ class WordsController < ApplicationController
   end
 
   def create
-    @word = Word.new(word_params)
+    @word = Word.find_or_initialize_by(name: name_param)
 
     if @word.save
       redirect_to new_word_path, notice: "Palavra #{@word.name.first}****** adicionada com sucesso."
@@ -17,7 +17,7 @@ class WordsController < ApplicationController
 
   private
 
-  def word_params
-    params.require(:word).permit(:name)
+  def name_param
+    params.require(:word).permit(:name)[:name].downcase.chomp.strip
   end
 end

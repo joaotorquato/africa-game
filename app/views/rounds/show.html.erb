@@ -1,0 +1,37 @@
+<h3>
+  <%= t(".title.#{@round.kind}") %><br/>
+  <small class="text-warning"><%= @round.team.name %></small>
+</h3>
+
+<p class="lh-1">
+<%= t(".description.#{@round.kind}") %><br/>
+<small><strong class="text-warning"><%= @words_available.count %></strong> palavras restantes</small></br>
+</p>
+
+<h4 class="mt-3"><%= t(".subtitle") %></h4>
+<%= form_with model: @round, url: round_path, method: :patch do |f| %>
+  <%= f.text_field :name, disabled: true,
+    class: 'form-control form-control-lg w-100 text-center',
+    placeholder: @word.name,
+    style: "height: 150px;" %>
+  <%= f.hidden_field :kind %>
+  <%= f.hidden_field :team_id %>
+  <div class="w-100 d-flex justify-content-center mt-3">
+    <div data-controller="timer" data-timer-remaining-value="<%= @round.time_remaining %>"
+                                 data-timer-audio-value="<%= asset_path("paro.mp3") %>"
+                                 class="d-flex justify-content-center rounded bg-primary p-3 w-50">
+      <i data-timer-target="icon" data-feather="clock" class="me-1"></i>
+      <div data-timer-target="output"><%= @round.time_remaining %>s</div>
+    </div>
+  </div>
+  <div class="row mt-3">
+    <div class="col-6">
+      <%= f.submit 'Voltar', name: "commit_back", class: "btn btn-warning btn-lg w-100", disabled: @round.words.count.zero? %>
+      <%= f.hidden_field :remove_word_id, value: @round.words.last&.id %>
+    </div>
+    <div class="col-6">
+      <%= f.submit 'Próximo', name: "commit_next", class: "btn btn-success btn-lg w-100" %>
+      <%= f.hidden_field :word_id, value: params[:word_id] %>
+    </div>
+  </div>
+<% end %>

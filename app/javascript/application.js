@@ -3,7 +3,8 @@ import "@hotwired/turbo-rails"
 import "controllers"
 import "bootstrap"
 import "feather"
-document.addEventListener("turbo:load", function() {
+
+document.addEventListener("turbo:load", () => {
   feather.replace();
 
   const toastLiveExample = document.getElementById('liveToast')

@@ -10,7 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_11_25_033020) do
+ActiveRecord::Schema[7.1].define(version: 2023_11_26_212547) do
+  create_table "rounds", force: :cascade do |t|
+    t.integer "team_id", null: false
+    t.integer "points"
+    t.integer "kind"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["team_id"], name: "index_rounds_on_team_id"
+  end
+
+  create_table "rounds_words", id: false, force: :cascade do |t|
+    t.integer "word_id"
+    t.integer "round_id"
+    t.index ["round_id"], name: "index_rounds_words_on_round_id"
+    t.index ["word_id"], name: "index_rounds_words_on_word_id"
+  end
+
   create_table "teams", force: :cascade do |t|
     t.string "name"
     t.integer "points"
@@ -24,4 +40,5 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_25_033020) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "rounds", "teams"
 end

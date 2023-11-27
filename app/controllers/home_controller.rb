@@ -3,9 +3,18 @@
 class HomeController < ApplicationController
   def index; end
 
+  def scoreboard
+    @teams = Team.all
+    @round = Round.last
+  end
+
   def reset_game
+    Round.all.destroy_all
     Team.all.destroy_all
     Word.all.destroy_all
-    redirect_to root_path, notice: 'Jogo resetado com sucesso.'
+
+    flash[:notice] = 'Jogo resetado.'
+
+    head :ok
   end
 end

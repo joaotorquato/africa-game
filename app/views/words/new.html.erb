@@ -1,4 +1,5 @@
-<h2 class="mb-5">Cadastro de Palavra</h2>
+<h2 class="mb-5">Cadastro de Palavras</h2>
+<small class="lh-1"> Cada pessoa deve cadastrar no mínimo 8 palavras</small>
 <%= form_with model: @word, html: { class: "d-grid gap-2" } do |f| %>
   <%= f.text_field :name, input_html: { autofocus: true }, class: 'form-control form-control-lg w-100' %>
   <% if @word.errors.any? %>
