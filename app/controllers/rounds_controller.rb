@@ -56,7 +56,7 @@ class RoundsController < ApplicationController
 
   def initialize_round
     # in case exists a team that still have time
-    return Round.last if Round.last.time_remaining?
+    return Round.last if Round.last&.time_remaining?
 
     Round.new(kind: round_kind, team: next_team)
   end

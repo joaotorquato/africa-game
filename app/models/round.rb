@@ -11,7 +11,7 @@ class Round < ApplicationRecord
   scope :finished, -> { where('created_at <= ?', 1.minute.ago) }
 
   def time_remaining
-    datetime1 = created_at + 15.seconds
+    datetime1 = created_at + 61.seconds
     datetime2 = Time.current
 
     # Calculate the difference in days

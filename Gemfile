@@ -26,10 +26,10 @@ group :development do
   gem 'web-console'
 end
 
-gem "dockerfile-rails", ">= 1.5", :group => :development
+gem 'dockerfile-rails', '>= 1.5', group: :development
 
-gem "pg", "~> 1.5"
+gem 'pg', '~> 1.5'
 
-gem "sentry-ruby", "~> 5.13"
+gem 'sentry-ruby', '~> 5.13'
 
-gem "sentry-rails", "~> 5.13"
+gem 'sentry-rails', '~> 5.13'
