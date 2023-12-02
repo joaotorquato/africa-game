@@ -4,6 +4,6 @@
 options:
   label:
     fly_launch_runtime: rails
-  postgresql: true
+  postgresql: false
   prepare: false
   sentry: true

@@ -1,9 +1,9 @@
-# fly.toml app configuration file generated for africa-game-shy-smoke-5338 on 2023-11-26T22:50:21-03:00
+# fly.toml app configuration file generated for africa-game on 2023-11-26T22:50:21-03:00
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = "africa-game-shy-smoke-5338"
+app = "africa-game"
 primary_region = "gru"
 console_command = "/rails/bin/rails console"
 
@@ -39,3 +39,13 @@ console_command = "/rails/bin/rails console"
 [[statics]]
   guest_path = "/rails/public"
   url_prefix = "/"
+
+[deploy]
+  release_command = "bin/rails db:prepare"
+
+[env]
+  DATABASE_URL = "sqlite3:///mnt/sqlite3/production.sqlite3"
+
+[mounts]
+  source = "sqlite3"
+  destination = "/mnt/sqlite3"
