@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_12_28_204445) do
+ActiveRecord::Schema[7.1].define(version: 2023_12_28_205451) do
   create_table "games", force: :cascade do |t|
     t.string "name"
     t.string "uuid"
@@ -34,6 +34,21 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_28_204445) do
     t.index ["word_id"], name: "index_rounds_words_on_word_id"
   end
 
+  create_table "steps", force: :cascade do |t|
+    t.integer "game_id", null: false
+    t.integer "word_id", null: false
+    t.integer "team_id", null: false
+    t.integer "round_type"
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.integer "sequence"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["game_id"], name: "index_steps_on_game_id"
+    t.index ["team_id"], name: "index_steps_on_team_id"
+    t.index ["word_id"], name: "index_steps_on_word_id"
+  end
+
   create_table "teams", force: :cascade do |t|
     t.string "name"
     t.integer "points"
@@ -48,4 +63,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_28_204445) do
   end
 
   add_foreign_key "rounds", "teams"
+  add_foreign_key "steps", "games"
+  add_foreign_key "steps", "teams"
+  add_foreign_key "steps", "words"
 end
