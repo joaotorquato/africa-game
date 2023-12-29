@@ -2,7 +2,7 @@
   <%= t(".title") %><br/>
 </h3>
 <p>
-  Último Lance:
+  <%= t(".last_round") %><br/>
   <small class="text-warning">
     <%= t(".subtitle.#{@round.kind}", team_name: @round.team.name) %>
   </small>
@@ -10,25 +10,32 @@
 
 <div class="mt-5 mb-5">
   <% @teams.each do |team| %>
-    <div class="row">
+    <div class="row mb-2">
       <div class="col-6">
         <%= team.name %>
       </div>
-      <div class="col-2">
-        <%= team.rounds.first_round&.first&.points || 0 %>
+      <div class="col-1">
+        <%= team.first_round_points %>
       </div>
-      <div class="col-2">
-        <%= team.rounds.second_round&.first&.points || 0 %>
+      <div class="col-1">
+        <%= team.second_round_points %>
       </div>
-      <div class="col-2">
-        <%= team.rounds.third_round&.first&.points || 0 %>
+      <div class="col-1">
+        <%= team.third_round_points %>
+      </div>
+      <div class="col-1">
+        -
+      </div>
+      <div class="col-1">
+        <%= team.total_points %>
       </div>
     </div>
   <% end %>
 </div>
 
-<% if game_ended? %>
+<% if current_game.ended? %>
   <%= link_to 'Início', root_path, class: "btn btn-success btn-lg w-100" %>
 <% else %>
-  <%= link_to 'Próximo', new_round_path, class: "btn btn-success btn-lg w-100" %>
+  <% next_step = current_game.next_step %>
+  <%= link_to t(".button.#{next_step.round_kind}"), step_path(next_step), class: "btn btn-success btn-lg w-100" %>
 <% end %>

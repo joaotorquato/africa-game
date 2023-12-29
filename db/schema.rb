@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_12_28_205451) do
+ActiveRecord::Schema[7.1].define(version: 2023_12_30_124307) do
   create_table "games", force: :cascade do |t|
     t.string "name"
     t.string "uuid"
@@ -20,50 +20,41 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_28_205451) do
 
   create_table "rounds", force: :cascade do |t|
     t.integer "team_id", null: false
-    t.integer "points"
+    t.datetime "start_time"
+    t.datetime "end_time"
     t.integer "kind"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["team_id"], name: "index_rounds_on_team_id"
   end
 
-  create_table "rounds_words", id: false, force: :cascade do |t|
-    t.integer "word_id"
-    t.integer "round_id"
-    t.index ["round_id"], name: "index_rounds_words_on_round_id"
-    t.index ["word_id"], name: "index_rounds_words_on_word_id"
-  end
-
   create_table "steps", force: :cascade do |t|
-    t.integer "game_id", null: false
     t.integer "word_id", null: false
-    t.integer "team_id", null: false
-    t.integer "round_type"
-    t.datetime "start_time"
-    t.datetime "end_time"
-    t.integer "sequence"
+    t.integer "round_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["game_id"], name: "index_steps_on_game_id"
-    t.index ["team_id"], name: "index_steps_on_team_id"
+    t.integer "round_kind"
+    t.index ["round_id"], name: "index_steps_on_round_id"
     t.index ["word_id"], name: "index_steps_on_word_id"
   end
 
   create_table "teams", force: :cascade do |t|
     t.string "name"
-    t.integer "points"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "game_id"
+    t.index ["game_id"], name: "index_teams_on_game_id"
   end
 
   create_table "words", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "game_id"
+    t.index ["game_id"], name: "index_words_on_game_id"
   end
 
   add_foreign_key "rounds", "teams"
-  add_foreign_key "steps", "games"
-  add_foreign_key "steps", "teams"
+  add_foreign_key "steps", "rounds"
   add_foreign_key "steps", "words"
 end

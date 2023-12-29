@@ -5,9 +5,10 @@
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
 #
 # Example:
-#
+game = Game.find_or_create_by!(name: 'First Game')
+
 ['Sam & Dave', "Ben & Jerry's", 'Os incríveis', 'Simon & Garfunkel'].each do |duo|
-  Team.find_or_create_by!(name: duo)
+  Team.find_or_create_by!(name: duo, game:)
 end
 
 substantivos = [
@@ -22,5 +23,5 @@ substantivos = [
   'invertebrado', 'vertebrado', 'herbívoro', 'carnívoro', 'onívoro', 'predador', 'presa', 'doméstico', 'selvagem', 'exótico'
 ]
 substantivos.each do |substantivo|
-  Word.find_or_create_by!(name: substantivo)
+  Word.find_or_create_by!(name: substantivo, game:)
 end

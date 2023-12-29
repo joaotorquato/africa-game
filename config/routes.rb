@@ -13,8 +13,9 @@ Rails.application.routes.draw do
   resources :home, only: %i[index]
   delete :reset_game, to: 'home#reset_game'
 
+  resources :games, only: :create
   resources :teams, only: %i[index create]
   resources :words, only: %i[new create]
-  resources :rounds, only: %i[new create show update]
+  resources :steps, only: %i[edit show update]
   get '/scoreboard', to: 'home#scoreboard'
 end

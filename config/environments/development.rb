@@ -74,4 +74,5 @@ Rails.application.configure do
   config.action_controller.raise_on_missing_callback_actions = true
 
   config.importmap.sweep_cache = true
+  Faker::Config.locale = :'pt-BR'
 end

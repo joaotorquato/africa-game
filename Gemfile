@@ -18,11 +18,15 @@ gem 'turbo-rails'
 
 group :development, :test do
   gem 'debug', platforms: %i[mri windows]
+  gem 'factory_bot_rails', '~> 6.4'
+  gem 'faker'
+  gem 'pry-byebug'
+  gem 'pry-rails'
+  gem 'rails-controller-testing', '~> 1'
   gem 'rspec-rails', '~> 6.1'
 end
 
 group :development do
-  gem 'pry-rails'
   gem 'rubocop', '~> 1.57'
   gem 'web-console'
 end

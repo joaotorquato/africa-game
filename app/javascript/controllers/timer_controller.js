@@ -1,7 +1,7 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = ["output", "icon"]
+  static targets = ["output", "icon", "wordLabel"]
   static values = {
     remaining: Number,
     audio: String
@@ -27,6 +27,7 @@ export default class extends Controller {
 
   stopTimer() {
     clearInterval(this.timer)
+    this.wordLabelTarget.value = "-"
     this.outputTarget.textContent = "Parar!"
     this.iconTarget.remove();
     feather.replace();

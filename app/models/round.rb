@@ -2,16 +2,25 @@
 
 class Round < ApplicationRecord
   belongs_to :team
+  has_one :game, through: :team
+  has_many :steps
   validates :kind, :team_id, presence: true
   enum kind: { first_round: 0, second_round: 1, third_round: 2 }
 
-  has_and_belongs_to_many :words
-
   # Load only the records that were created more than a minute ago
-  scope :finished, -> { where('created_at <= ?', 1.minute.ago) }
+  scope :completed, -> { where.not(end_time: nil) }
+  scope :in_progress, -> { where(end_time: nil) }
+
+  def start!
+    update(start_time: Time.current) if start_time.nil?
+  end
+
+  def end!
+    update(end_time: Time.current) if end_time.nil?
+  end
 
   def time_remaining
-    datetime1 = created_at + 61.seconds
+    datetime1 = start_time + 5.seconds
     datetime2 = Time.current
 
     # Calculate the difference in days
@@ -19,15 +28,6 @@ class Round < ApplicationRecord
     return 0 if difference_in_seconds.negative?
 
     difference_in_seconds
-  end
-
-  def words_available
-    words = Round.where(kind:).map(&:words).flatten
-    Word.where.not(id: words.pluck(:id))
-  end
-
-  def next_word
-    words_available.sample
   end
 
   def time_remaining?

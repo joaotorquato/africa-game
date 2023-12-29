@@ -3,5 +3,6 @@
 class Word < ApplicationRecord
   validates :name, presence: true
 
-  has_and_belongs_to_many :rounds
+  has_many :steps
+  belongs_to :game
 end

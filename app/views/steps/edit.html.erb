@@ -1,0 +1,34 @@
+<h3>
+  <%= t(".title.#{@round.kind}") %><br/>
+  <small class="text-warning"><%= @round.team.name %></small>
+</h3>
+
+<p class="lh-1">
+<%= t(".description.#{@round.kind}") %><br/>
+<small><strong class="text-warning"><%= @words_remaining_for_current_round %></strong> palavras restantes</small></br>
+</p>
+
+<h4 class="mt-3"><%= t(".subtitle") %></h4>
+<%= form_with model: @step, url: step_path, method: :patch do |f| %>
+  <div data-controller="timer"
+       data-timer-remaining-value="<%= @round.time_remaining %>"
+       data-timer-audio-value="<%= asset_path("paro.mp3") %>">
+    <%= f.text_field :name, disabled: true,
+      data: { 'timer-target':  'wordLabel' },
+      class: 'form-control form-control-lg w-100 text-center',
+      placeholder: @step.word.name,
+      style: "height: 150px;" %>
+    <%= f.hidden_field :round_id %>
+    <div class="w-100 d-flex justify-content-center mt-3">
+      <div class="d-flex justify-content-center rounded bg-primary p-3 w-50">
+           <i data-timer-target="icon" data-feather="clock" class="me-1"></i>
+           <div data-timer-target="output"><%= @round.time_remaining %>s</div>
+      </div>
+    </div>
+    <div class="row mt-3 justify-content-center d-flex">
+      <div class="col-6">
+        <%= f.submit 'Próximo', class: "btn btn-success btn-lg w-100" %>
+      </div>
+    </div>
+  </div>
+<% end %>

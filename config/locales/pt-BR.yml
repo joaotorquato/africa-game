@@ -2,12 +2,17 @@ pt-BR:
   home:
     scoreboard:
       title: Pontuação
+      last_round: 'Último Lance:'
       subtitle:
-        first_round: 1ª Rodada de %{team_name}
-        second_round: 2ª Rodada de %{team_name}
-        third_round: 3ª Rodada de %{team_name}
-  rounds:
-    new:
+        first_round: 1ª Rodada - %{team_name}
+        second_round: 2ª Rodada - %{team_name}
+        third_round: 3ª Rodada - %{team_name}
+      button:
+        first_round: Iniciar 1ª Rodada
+        second_round: Iniciar 2ª Rodada
+        third_round: Iniciar 3ª Rodada
+  steps:
+    show:
       title:
         first_round: Primeira Rodada
         second_round: Segunda Rodada
@@ -17,7 +22,7 @@ pt-BR:
         second_round: Descreva a palavra apenas com uma outra palavra.
         third_round: Descreva a palavra através de mimica.
       subtitle: Palavra
-    show:
+    edit:
       title:
         first_round: Primeira Rodada
         second_round: Segunda Rodada
