@@ -1,4 +1,4 @@
-# fly.toml app configuration file generated for africa-game on 2023-12-30T15:34:31-03:00
+# fly.toml app configuration file generated for africa-game on 2023-12-30T15:47:16-03:00
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
@@ -10,13 +10,7 @@ console_command = "/rails/bin/rails console"
 [build]
 
 [deploy]
-  release_command = "bin/rails db:prepare"
-
-[[mounts]]
-  source = "africa-game-db-psql"
-  destination = "/data"
-  initial_size = "1gb"
-  auto_extend_size_threshold = 0
+  release_command = "./bin/rails db:prepare"
 
 [http_service]
   internal_port = 3000
