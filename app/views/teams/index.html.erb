@@ -1,4 +1,6 @@
-<h2 class="mb-5">Cadastro de Times</h2>
+<h2>Cadastro de Times</h2>
+<small ><%= current_game.teams.count %> Times | <%= current_game.words.count %> Palavras</small>
+<div class="mb-4"></div>
 <%= form_with model: @team, html: { class: "d-grid gap-2" } do |f| %>
     <%= f.text_field :name, input_html: { autofocus: true }, class: 'form-control form-control-lg w-100' %>
   <% if @team.errors.any? %>

@@ -1,4 +1,6 @@
-<h2 class="mb-5">Cadastro de Palavras</h2>
+<h2>Cadastro de Palavras </h2>
+<small ><%= current_game.teams.count %> Times | <%= current_game.words.count %> Palavras</small>
+<div class="mb-4"></div>
 <small class="lh-1"> Cada pessoa deve cadastrar no mínimo 8 palavras</small>
 <%= form_with model: @word, html: { class: "d-grid gap-2" } do |f| %>
   <%= f.text_field :name, input_html: { autofocus: true }, class: 'form-control form-control-lg w-100' %>

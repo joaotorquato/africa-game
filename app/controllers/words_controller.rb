@@ -6,7 +6,7 @@ class WordsController < ApplicationController
   end
 
   def create
-    @word = Word.find_or_initialize_by(name: name_param)
+    @word = Word.find_or_initialize_by(name: name_param, game: current_game)
 
     if @word.save
       redirect_to new_word_path, notice: "Palavra #{@word.name.first}****** adicionada com sucesso."
