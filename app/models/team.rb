@@ -8,18 +8,18 @@ class Team < ApplicationRecord
   belongs_to :game
 
   def total_points
-    steps.count
+    steps.completed.count
   end
 
   def first_round_points
-    steps.where(round_kind: :first_round).count
+    steps.completed.where(round_kind: :first_round).count
   end
 
   def second_round_points
-    steps.where(round_kind: :second_round).count
+    steps.completed.where(round_kind: :second_round).count
   end
 
   def third_round_points
-    steps.where(round_kind: :third_round).count
+    steps.completed.where(round_kind: :third_round).count
   end
 end
