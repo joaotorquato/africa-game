@@ -22,8 +22,12 @@ group :development, :test do
   gem 'faker'
   gem 'pry-byebug'
   gem 'pry-rails'
-  gem 'rails-controller-testing', '~> 1'
   gem 'rspec-rails', '~> 6.1'
+end
+
+group :test do
+  gem 'rails-controller-testing', '~> 1'
+  gem 'simplecov', '~> 0.22', require: false
 end
 
 group :development do
