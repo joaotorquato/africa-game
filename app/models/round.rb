@@ -11,6 +11,8 @@ class Round < ApplicationRecord
   scope :completed, -> { where.not(end_time: nil) }
   scope :in_progress, -> { where(end_time: nil) }
 
+  ROUND_TIME = 61.seconds
+
   def start!
     update(start_time: Time.current) if start_time.nil?
   end
@@ -20,7 +22,7 @@ class Round < ApplicationRecord
   end
 
   def time_remaining
-    datetime1 = start_time + 5.seconds
+    datetime1 = start_time + ROUND_TIME
     datetime2 = Time.current
 
     # Calculate the difference in days
