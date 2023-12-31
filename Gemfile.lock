@@ -272,11 +272,6 @@ GEM
       google-protobuf (~> 3.23)
     sass-embedded (1.69.5-x86_64-linux-gnu)
       google-protobuf (~> 3.23)
-    sentry-rails (5.13.0)
-      railties (>= 5.0)
-      sentry-ruby (~> 5.13.0)
-    sentry-ruby (5.13.0)
-      concurrent-ruby (~> 1.0, >= 1.0.2)
     simplecov (0.22.0)
       docile (~> 1.1)
       simplecov-html (~> 0.11)
@@ -315,16 +310,16 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
-  bootsnap
-  dartsass-rails
+  bootsnap (~> 1.17)
+  dartsass-rails (~> 0.5)
   debug
   dockerfile-rails (>= 1.5)
   factory_bot_rails (~> 6.4)
   faker
-  importmap-rails
-  jbuilder
+  importmap-rails (~> 1.2)
+  jbuilder (~> 2.11)
   pg (~> 1.5)
-  propshaft
+  propshaft (~> 0.8)
   pry-byebug
   pry-rails
   puma (>= 5.0)
@@ -333,12 +328,10 @@ DEPENDENCIES
   redis (>= 4.0.1)
   rspec-rails (~> 6.1)
   rubocop (~> 1.57)
-  sentry-rails (~> 5.13)
-  sentry-ruby (~> 5.13)
   simplecov (~> 0.22)
   sqlite3 (~> 1.4)
-  stimulus-rails
-  turbo-rails
+  stimulus-rails (~> 1.3)
+  turbo-rails (~> 1.5)
   web-console
 
 RUBY VERSION

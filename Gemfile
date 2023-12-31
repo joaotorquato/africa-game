@@ -4,17 +4,18 @@ source 'https://rubygems.org'
 
 ruby '3.2.2'
 
-gem 'bootsnap', require: false
-gem 'dartsass-rails'
-gem 'importmap-rails'
-gem 'jbuilder'
-gem 'propshaft'
+gem 'bootsnap', '~> 1.17', require: false
+gem 'dartsass-rails', '~> 0.5'
+gem 'importmap-rails', '~> 1.2'
+gem 'jbuilder', ' ~> 2.11'
+gem 'pg', '~> 1.5'
+gem 'propshaft', '~> 0.8'
 gem 'puma', '>= 5.0'
 gem 'rails', '~> 7.1.2'
 gem 'redis', '>= 4.0.1'
 gem 'sqlite3', '~> 1.4'
-gem 'stimulus-rails'
-gem 'turbo-rails'
+gem 'stimulus-rails', '~> 1.3'
+gem 'turbo-rails', '~> 1.5'
 
 group :development, :test do
   gem 'debug', platforms: %i[mri windows]
@@ -31,14 +32,7 @@ group :test do
 end
 
 group :development do
+  gem 'dockerfile-rails', '>= 1.5'
   gem 'rubocop', '~> 1.57'
   gem 'web-console'
 end
-
-gem 'dockerfile-rails', '>= 1.5', group: :development
-
-gem 'pg', '~> 1.5'
-
-gem 'sentry-ruby', '~> 5.13'
-
-gem 'sentry-rails', '~> 5.13'
