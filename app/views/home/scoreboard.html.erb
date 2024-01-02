@@ -2,17 +2,20 @@
   <%= t(".title") %><br/>
 </h3>
 <p>
-  <%= t(".last_round") %><br/>
+  <%= t(".last_round") %>
   <small class="text-warning">
     <%= t(".subtitle.#{@round.kind}", team_name: @round.team.name) %>
   </small>
 </p>
 
 <div class="mt-5 mb-5">
-  <% @teams.each do |team| %>
+  <% @teams.each_with_index do |team, index| %>
     <div class="row mb-2">
       <div class="col-6">
-        <%= team.name %>
+        <div class="">
+          <% final = (index + 1) %>
+          <%= final %>º - <%= team.name %>
+        </div>
       </div>
       <div class="col-1">
         <%= team.first_round_points %>

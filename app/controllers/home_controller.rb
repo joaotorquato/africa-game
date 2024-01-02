@@ -4,7 +4,7 @@ class HomeController < ApplicationController
   def index; end
 
   def scoreboard
-    @teams = current_game.teams.order(:id)
+    @teams = current_game.teams.sort_by(&:total_points).reverse
     @round = current_game.rounds.completed.order(:id).last
   end
 
