@@ -2,6 +2,12 @@
 
 class TeamsController < ApplicationController
   def index
+    if current_game.started_yet?
+      flash[:notice] = 'Jogo iniciado, não é possível mais cadastrar!'
+
+      redirect_to root_path
+    end
+
     @teams = Team.all
     @team = Team.new
   end

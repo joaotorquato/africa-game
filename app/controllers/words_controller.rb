@@ -2,6 +2,12 @@
 
 class WordsController < ApplicationController
   def new
+    if current_game.started_yet?
+      flash[:notice] = 'Jogo iniciado, não é possível mais cadastrar!'
+
+      redirect_to root_path
+    end
+
     @word = Word.new
   end
 
