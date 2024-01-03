@@ -2,7 +2,7 @@
 <small ><%= current_game.teams.count %> Times | <%= current_game.words.count %> Palavras</small>
 <div class="mb-4"></div>
 <%= form_with model: @team, html: { class: "d-grid gap-2" } do |f| %>
-    <%= f.text_field :name, input_html: { autofocus: true }, class: 'form-control form-control-lg w-100' %>
+  <%= f.text_field :name, data: { controller: "focus" }, class: 'form-control form-control-lg w-100' %>
   <% if @team.errors.any? %>
       <%= @team.errors.full_messages.to_sentence.capitalize %>
   <% end %>
