@@ -20,7 +20,7 @@ export default class extends Controller {
         this.outputTarget.textContent = `${this.timeLeft}s`
       } else {
         this.stopTimer()
-        this.playBell()
+        this.playClockAlarm()
       }
     }, 1000)
   }
@@ -33,16 +33,14 @@ export default class extends Controller {
     feather.replace()
   }
 
-  playBell() {
-    // Play a bell sound
+  playClockAlarm() {
     new Audio(this.audioValue).play()
   }
 
   submitForm(event) {
     event.preventDefault()
-    console.log('stop timer before submit!')
     if (this.timeLeft > 0) {
-      this.stopTimer()
+      clearInterval(this.timer)
     }
     this.element.closest('form').submit()
   }
