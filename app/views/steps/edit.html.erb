@@ -12,7 +12,7 @@
 <%= form_with model: @step, url: step_path, method: :patch do |f| %>
   <div data-controller="timer"
        data-timer-remaining-value="<%= @round.time_remaining %>"
-       data-timer-audio-value="<%= asset_path("paro.mp3") %>">
+       data-timer-audio-value="<%= asset_path("clock_alarm.mp3") %>">
     <%= f.text_field :name, disabled: true,
       data: { 'timer-target':  'wordLabel' },
       class: 'form-control form-control-lg w-100 text-center',
