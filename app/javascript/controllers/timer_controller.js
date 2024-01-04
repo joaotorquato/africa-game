@@ -29,12 +29,21 @@ export default class extends Controller {
     clearInterval(this.timer)
     this.wordLabelTarget.value = "-"
     this.outputTarget.textContent = "Parar!"
-    this.iconTarget.remove();
-    feather.replace();
+    this.iconTarget.remove()
+    feather.replace()
   }
 
   playBell() {
     // Play a bell sound
     new Audio(this.audioValue).play()
+  }
+
+  submitForm(event) {
+    event.preventDefault()
+    console.log('stop timer before submit!')
+    if (this.timeLeft > 0) {
+      this.stopTimer()
+    }
+    this.element.closest('form').submit()
   }
 }

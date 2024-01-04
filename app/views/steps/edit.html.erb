@@ -27,7 +27,7 @@
     </div>
     <div class="row mt-3 justify-content-center d-flex">
       <div class="col-6">
-        <%= f.submit 'Próximo', class: "btn btn-success btn-lg w-100" %>
+        <%= f.submit 'Próximo', data: { action: 'click->timer#submitForm' }, class: "btn btn-success btn-lg w-100" %>
       </div>
     </div>
   </div>
